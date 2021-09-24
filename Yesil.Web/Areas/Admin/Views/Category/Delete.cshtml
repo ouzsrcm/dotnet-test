@@ -1,0 +1,57 @@
+﻿@model Yesil.Data.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Kategoriyi sil</h3>
+
+<h4>Bu kategoriyi silmek istediğinizden emin misiniz ?</h4>
+<div>
+    <h4><strong>@Model.Title</strong></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Başlık
+        </dt>
+
+        <dd>
+            @Model.Title
+        </dd>
+
+        <dt>
+            Detaylar
+        </dt>
+
+        <dd>
+            @Model.Details
+        </dd>
+
+        <dt>
+            Anahtar Kelimeler
+        </dt>
+
+        <dd>
+            @Model.Keyword
+        </dd>
+
+        <dt>
+            Açıklamalar
+        </dt>
+
+        <dd>
+            @Model.Description
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" onclick="return confirm('İşleme devam etmek istiyor musunuz?')" /> |
+            @Html.ActionLink("Kategorilere dön", "Index")
+        </div>
+    }
+</div>

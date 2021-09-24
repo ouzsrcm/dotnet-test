@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Yesil.Data.Facility>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Tesislerimiz</h3>
+
+<p>
+    @Html.ActionLink("Yeni ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Resim
+        </th>
+        <th>
+            Başlık
+        </th>
+        <th>
+            Adres
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@item.Image" style="width:80px;" />
+            </td>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Address
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id = item.FacilityId }) |
+            @Html.ActionLink("Sil", "Delete", new { id = item.FacilityId })
+        </td>
+    </tr>
+    }
+</table>

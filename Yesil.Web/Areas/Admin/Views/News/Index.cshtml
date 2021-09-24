@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Yesil.Data.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Haberler</h3>
+
+<p>
+    @Html.ActionLink("Yeni haber ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Resim
+        </th>
+        <th>
+            Başlık
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@item.Image" style="width:80px;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.NewsId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.NewsId })
+        </td>
+    </tr>
+}
+
+</table>

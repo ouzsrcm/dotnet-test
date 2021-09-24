@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Hata";
+    Layout = null;
+}
+
+<html>
+
+<head>
+    @Html.Partial("Header")
+</head>
+
+<body class="header-fixed header-fixed-space">
+
+    <div class="wrapper">
+
+        <div class="container content">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="error-v1">
+                        <span class="error-v1-title">:/</span>
+                        <span>Sistem bir hata ile karşılaştı.</span>
+                        Aradığınız sayfa sistem tarafından bulunamıyor.
+                        Bu durum sistem yöneticisine bildirildi. Lütfen daha sonra yeniden deneyin.
+                        <br />
+                        yada <a href="/Home">anasayfa</a>'dan devam edin.
+                    </div>
+                    <hr />
+                    <div>
+                        @ViewBag.ERROR
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @Html.Partial("Scripts")
+
+</body>
+
+</html>

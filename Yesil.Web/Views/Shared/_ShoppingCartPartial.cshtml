@@ -1,0 +1,69 @@
+﻿@model Yesil.Model.IShop
+<div class="shop-badge badge-icons pull-right">
+    <a href="/ShoppingCart"><i class="fa fa-shopping-cart"></i></a>
+    @if (Model.Customer.ShoppingCart.List != null && Model.Customer.ShoppingCart.List.Count > 0)
+    {
+        <span class="badge badge-sea rounded-x">
+            @Model.Customer.ShoppingCart.List.Count
+        </span>
+    }
+    else
+    {
+        
+    }
+    <div class="badge-open">
+        <ul class="list-unstyled mCustomScrollbar" data-mcs-theme="minimal-dark">
+            @if (Model.Customer.ShoppingCart.List != null && Model.Customer.ShoppingCart.List.Count > 0)
+            {
+                try
+                {
+                    foreach (var item in Model.Customer.ShoppingCart.List)
+                    {
+                        <li>
+                            <img src="@item.Product.Image" alt="@item.Product.Title">
+                            <a href="/ShoppingCart/Remove/@item.ShoppingCartId" class="close">×</a>
+                            <div class="overflow-h">
+                                <span>@item.Product.Title</span>
+                                <small>@item.Quantity x @item.SoldPrice</small>
+                            </div>
+                        </li>
+                    }
+                }
+                catch
+                {
+                }
+            }
+            else
+            {
+                <li>
+                    <strong>
+                        Sepetiniz boş.
+                    </strong>
+                </li>
+            }
+        </ul>
+        @if (Model.Customer.ShoppingCart.List != null && Model.Customer.ShoppingCart.List.Count > 0)
+        {
+            <div class="subtotal">
+                <div class="overflow-h margin-bottom-10">
+                    @{
+                        decimal price = 0;
+                        foreach (var item in Model.Customer.ShoppingCart.List)
+                        {
+                            price += (decimal)(item.Quantity * item.SoldPrice);
+                        }
+                    }
+                    <span>ARA TOPLAM</span>
+                    <span class="pull-right subtotal-cost">
+                        @(String.Format("{0:c}", price))
+                    </span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="/ShoppingCart" class="btn-u btn-u-sea-shop btn-block">Alışverişi tamamla</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

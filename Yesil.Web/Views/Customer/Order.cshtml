@@ -1,0 +1,62 @@
+﻿@model Yesil.Model.IShop
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+<div class="breadcrumbs-v4">
+    <div class="container">
+        <h1>@Model.Customer.Firstname @Model.Customer.Lastname</h1>
+        <ul class="breadcrumb-v4-in">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="/Customer">Hesabım</a></li>
+            <li><a href="#">Siparişler</a></li>
+        </ul>
+    </div>
+</div>
+<div class="log-reg-v3 content-xs">
+    <div class="container">
+        @if (Model.Customer.Alert.AlertStatus != null)
+        {
+            if (Model.Customer.Alert.AlertStatus)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@Model.Customer.Alert.AlertCssClass">
+                            @if (@Model.Customer.Alert.AlertTitle != "")
+                            {
+                                <strong>@Model.Customer.Alert.AlertTitle</strong>
+                                <br />
+                            }
+                            @Model.Customer.Alert.AlertBody
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Partial("_CustomerMenuPartial")
+            </div>
+            <div class="col-md-9">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Ürünler</th>
+                            <th>Sepet Toplamı</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

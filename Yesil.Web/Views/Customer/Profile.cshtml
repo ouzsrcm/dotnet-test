@@ -1,0 +1,74 @@
+﻿@model Yesil.Model.IShop
+@{
+    ViewBag.Title = "Hesabım";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml"; 
+}
+<div class="breadcrumbs-v4">
+    <div class="container">
+        <h1>@Model.Customer.Firstname @Model.Customer.Lastname</h1>
+        <ul class="breadcrumb-v4-in">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="#">Hesabım</a></li>
+        </ul>
+    </div>
+</div>
+<div class="log-reg-v3 content-xs">
+    <div class="container">
+        @if (Model.Customer.Alert.AlertStatus != null)
+        {
+            if (Model.Customer.Alert.AlertStatus)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@Model.Customer.Alert.AlertCssClass">
+                            @if (@Model.Customer.Alert.AlertTitle != "")
+                            {
+                                <strong>@Model.Customer.Alert.AlertTitle</strong>
+                                <br />
+                            }
+                            @Model.Customer.Alert.AlertBody
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Partial("_CustomerMenuPartial")
+            </div>
+            <div class="col-md-9">
+                <div class="panel panel-default margin-bottom-40">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Hesap bilgileri</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class="margin-bottom-40" role="form" method="post" action="/Customer/SaveInfo">
+                            <input type="hidden" name="CustomerId" id="CustomerId" value="@Model.Customer.CustomerId" />
+                            <div class="form-group">
+                                <label for="Firstname">Adı</label>
+                                <input type="text" class="form-control" id="Firstname" name="Firstname" placeholder="Adı" value="@Model.Customer.Firstname" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Lastname">Soyadı</label>
+                                <input type="text" class="form-control" id="Lastname" name="Lastname" placeholder="Soyadı" value="@Model.Customer.Lastname" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Eposta</label>
+                                <input type="text" class="form-control" id="Email" name="Email" placeholder="Eposta" value="@Model.Customer.Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Phone1">Telefon 1</label>
+                                <input type="text" class="form-control" id="Phone1" name="Phone1" placeholder="Telefon 2" value="@Model.Customer.Phone1" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Phone2">Telefon 2</label>
+                                <input type="text" class="form-control" id="Phone2" name="Phone2" placeholder="Telefon 2" value="@Model.Customer.Phone2" />
+                            </div>
+                            <button type="submit" class="btn-u btn-u-blue">Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model Yesil.Data.Admin
+
+@{
+    ViewBag.Title = "Yönetici Silme";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yönetici Silme</h2>
+
+<h3>Bu yöneticiyi silmek istediğinize emin misiniz?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Kullanıcı Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Yönetici Listesi", "Index")
+        </div>
+    }
+</div>

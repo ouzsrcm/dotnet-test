@@ -1,0 +1,127 @@
+﻿@model Yesil.Data.Product
+
+@{
+    ViewBag.Title = "Ürün Düzenle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>@Model.Title</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ProductId)
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Kategori</div>
+            <div class="col-md-10">
+                @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Birim</div>
+            <div class="col-md-10">
+                @Html.DropDownList("UnitId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UnitId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Başlık</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Anahtar Kelimeler</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keyword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Keyword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">SEO Açıklamaları</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Ürün Detayları</div>
+            <div class="col-md-10">
+                <textarea id="Details" name="Details">@Model.Details</textarea>
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                <script>
+                    $(document).ready(function () {
+                        $("#Details").summernote();
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Resim</div>
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" accept=".jpg, .png" value="" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Etiketler</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tags, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tags, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Fiyat</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Kampanyalı Fiyat</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CampaignPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CampaignPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Kampanya var mı?</div>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <select class="form-control" id="IsCampaign" name="IsCampaign">
+                        <option value="true">Evet</option>
+                        <option selected="selected" value="false">Hayır</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.IsCampaign, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Ürün Listesi", "Index")
+</div>

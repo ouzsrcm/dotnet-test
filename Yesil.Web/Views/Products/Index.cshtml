@@ -1,0 +1,101 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model Yesil.Model.IShop
+@{
+    ViewBag.Title = "Ürünlerimiz";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+<div class="breadcrumbs-v4">
+    <div class="container">
+        <h1>ÜRÜNLERİMİZ</h1>
+        <ul class="breadcrumb-v4-in">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="#">Ürünler</a></li>
+        </ul>
+    </div>
+</div>
+<div class="content container">
+    @if (Model.Product.AlertStatus != null)
+    {
+        if (Model.Product.AlertStatus)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-@Model.Product.AlertCssClass">
+                        @if (@Model.Product.AlertTitle != "")
+                        {
+                            <strong>@Model.Product.AlertTitle</strong>
+                            <br />
+                        }
+                        @Model.Product.AlertBody
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    <div class="row">
+        <div class="col-md-3 filter-by-block md-margin-bottom-60">
+            <h1>KATEGORİLER</h1>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div id="collapseOne" class="panel-collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled checkbox-list">
+                                @foreach (var item in @ViewBag.Categories)
+                                {
+                                    <li>
+                                        <label class="checkbox">
+                                            <i></i>
+                                            <a href="/Products/Category/@item.CategoryId">@item.Title</a>
+                                        </label>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div>
+
+            </div>
+            <div class="filter-results">
+                @foreach (var item in Model.Product.Products)
+                {
+                    <div class="list-product-description product-description-brd margin-bottom-30">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <a href="/Products/Show/@item.ProductId">
+                                    <img class="img-responsive sm-margin-bottom-20" src="@item.Image" alt="">
+                                </a>
+                            </div>
+                            <div class="col-sm-8 product-description">
+                                <div class="overflow-h margin-bottom-5">
+                                    <ul class="list-inline overflow-h">
+                                        <li><h4 class="title-price"><a href="/Products/Show/@item.ProductId">@item.Title</a></h4></li>
+                                        <li><span class="gender text-uppercase">@item.Category.Title</span></li>
+                                    </ul>
+                                    <div class="margin-bottom-10">
+                                        @if ((bool)item.IsCampaign)
+                                        {
+                                            <span class="title-price margin-right-10"><strong>@(String.Format("{0:c}", item.CampaignPrice))</strong></span>
+                                            <span class="title-price line-through"><strong>@(String.Format("{0:c}", item.Price))</strong></span>
+                                        }
+                                        else
+                                        {
+                                            <span class="title-price margin-right-10"><strong>@(String.Format("{0:c}", item.Price))</strong></span>
+                                        }
+                                    </div>
+                                    <p class="margin-bottom-20">@Html.Raw(item.Details)</p>
+                                    <a href="/ShoppingCart/Add/@item.ProductId" class="btn-u btn-u-sea-shop">Sepete ekle</a>
+                                    <a href="/Products/Show/@item.ProductId" class="btn-u btn-u-sea-shop">Detaylar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

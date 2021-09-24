@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7b57d9ec18c4d9f9752d014f7cb404f" Name="Diagram1">
+        <EntityTypeShape EntityType="YesilModel.Admin" Width="1.5" PointX="8.75" PointY="2.25" />
+        <EntityTypeShape EntityType="YesilModel.BankAccount" Width="1.5" PointX="10.75" PointY="2.25" />
+        <EntityTypeShape EntityType="YesilModel.Category" Width="1.5" PointX="3.75" PointY="1.75" />
+        <EntityTypeShape EntityType="YesilModel.Company" Width="1.5" PointX="10.75" PointY="5.25" />
+        <EntityTypeShape EntityType="YesilModel.Customer" Width="1.5" PointX="1.5" PointY="13.125" />
+        <EntityTypeShape EntityType="YesilModel.CustomerAddress" Width="1.5" PointX="3.75" PointY="23.5" />
+        <EntityTypeShape EntityType="YesilModel.CustomerCredential" Width="1.5" PointX="3.75" PointY="20.5" />
+        <EntityTypeShape EntityType="YesilModel.Facility" Width="1.5" PointX="8.75" PointY="9.5" />
+        <EntityTypeShape EntityType="YesilModel.FacilityImage" Width="1.5" PointX="11" PointY="9.875" />
+        <EntityTypeShape EntityType="YesilModel.Faq" Width="1.5" PointX="5.75" PointY="2.25" />
+        <EntityTypeShape EntityType="YesilModel.News" Width="1.5" PointX="8.75" PointY="13.25" />
+        <EntityTypeShape EntityType="YesilModel.Order" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YesilModel.OrderCard" Width="1.5" PointX="3" PointY="16.875" />
+        <EntityTypeShape EntityType="YesilModel.OrderProduct" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="YesilModel.OrderState" Width="1.5" PointX="1.5" PointY="10.75" />
+        <EntityTypeShape EntityType="YesilModel.Page" Width="1.5" PointX="3.75" PointY="10.5" />
+        <EntityTypeShape EntityType="YesilModel.PagePlugin" Width="1.5" PointX="6" PointY="10.75" />
+        <EntityTypeShape EntityType="YesilModel.Product" Width="1.5" PointX="6" PointY="4.75" />
+        <EntityTypeShape EntityType="YesilModel.ShoppingCart" Width="1.5" PointX="8.25" PointY="5.375" />
+        <EntityTypeShape EntityType="YesilModel.SocialAccount" Width="1.5" PointX="10.75" PointY="13.25" />
+        <EntityTypeShape EntityType="YesilModel.sysdiagram" Width="1.5" PointX="12.75" PointY="2.25" />
+        <EntityTypeShape EntityType="YesilModel.Unit" Width="1.5" PointX="0.75" PointY="5.875" />
+        <AssociationConnector Association="YesilModel.FK_Product_Category" />
+        <AssociationConnector Association="YesilModel.FK_CustomerAddress_Customer" />
+        <AssociationConnector Association="YesilModel.FK_CustomerCredential_Customer" />
+        <AssociationConnector Association="YesilModel.FK_Order_Customer" />
+        <AssociationConnector Association="YesilModel.FK_ShoppingCart_Customer" />
+        <AssociationConnector Association="YesilModel.FK_FacilityImage_Facility" />
+        <AssociationConnector Association="YesilModel.FK_Order_OrderState" />
+        <AssociationConnector Association="YesilModel.FK_OrderCard_Order" />
+        <AssociationConnector Association="YesilModel.FK_OrderProduct_Order" />
+        <AssociationConnector Association="YesilModel.FK_OrderProduct_Product" />
+        <AssociationConnector Association="YesilModel.FK_OrderProduct_Unit" />
+        <AssociationConnector Association="YesilModel.FK_PagePlugin_Page" />
+        <AssociationConnector Association="YesilModel.FK_Product_Unit" />
+        <AssociationConnector Association="YesilModel.FK_ShoppingCart_Product" />
+        <AssociationConnector Association="YesilModel.FK_ShoppingCart_Unit" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

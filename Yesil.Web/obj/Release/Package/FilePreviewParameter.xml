@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="yesil" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\OGUZHANS\\documents\\visual\ studio\ 2013\\Projects\\Yesil\.Web\\Yesil\.Web\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\OGUZHANS\\documents\\visual\ studio\ 2013\\Projects\\Yesil\.Web\\Yesil\.Web\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="YesilEntities-Web.config Connection String" description="" value="metadata=res://*/YesilEdm.csdl|res://*/YesilEdm.ssdl|res://*/YesilEdm.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=OGUZHANS\ALEMDAR;initial catalog=Yesil;user id=sa;password=saricamou2;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\OGUZHANS\\documents\\visual\ studio\ 2013\\Projects\\Yesil\.Web\\Yesil\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='YesilEntities']/@connectionString" />
+  </parameter>
+</parameters>

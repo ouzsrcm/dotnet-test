@@ -1,0 +1,152 @@
+﻿@model Yesil.Model.IShop
+@{
+    ViewBag.Title = "Alışveriş Sepetim";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<div class="breadcrumbs-v4">
+    <div class="container">
+        <span class="page-name">Alışverişi tamamla</span>
+        <h1>SEPETİM</h1>
+        <ul class="breadcrumb-v4-in">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="/Customer">Hesabım</a></li>
+            <li class="active">Sepetim</li>
+        </ul>
+    </div>
+</div>
+
+<div class="content-md margin-bottom-30">
+    <div class="container">
+
+        @try
+        {
+            if (Model.Customer.ShoppingCart.AlertStatus)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@Model.Customer.ShoppingCart.AlertCssClass">
+                            @if (Model.Customer.ShoppingCart.AlertTitle != "")
+                            {
+                                <strong>@Model.Customer.ShoppingCart.AlertTitle</strong>
+                                <br />
+                            }
+                            @Model.Customer.ShoppingCart.AlertBody
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        catch { }
+
+        <div class="shopping-cart">
+            <div>
+                <section>
+                    @if (Model.Customer.ShoppingCart.List == null)
+                    {
+                        <div class="alert alert-warning">
+                            <strong>Sepetinizde ürün bulunmuyor.</strong><br />
+                            Şimdi <a href="/Products">alışverişe devam</a> edin.
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Ürün Bilgileri</th>
+                                        <th>Birim Fiyatı</th>
+                                        <th>Birim</th>
+                                        <th>Toplam</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        if (Model.Customer.ShoppingCart.List != null)
+                                        {
+                                            foreach (var item in Model.Customer.ShoppingCart.List)
+                                            {
+                                                <tr>
+                                                    <td class="product-in-table">
+                                                        <img class="img-responsive" src="@item.Product.Image" alt="">
+                                                        <div class="product-it-in">
+                                                            <h3>@item.Product.Title</h3>
+                                                            <span><strong>@item.Product.Category.Title</strong><br /> @item.Product.Description</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        @(String.Format("{0:c}", item.SoldPrice))
+                                                    </td>
+                                                    <td>
+                                                        <div class="well-sm">
+                                                            @item.Quantity @item.Unit.Title
+                                                        </div>
+                                                        <hr style="padding:0px; margin:5px;" />
+                                                        <form action="/ShoppingCart/Update/@item.ShoppingCartId" method="post">
+                                                            <input type="hidden" name="ShoppingCartId" id="ShoppingCartId" value="@item.ShoppingCartId" />
+                                                            <input type='text' class="quantity-field" style="width:100px;" name="Quantity" value="@item.Quantity" id="Quantity" />
+                                                            <input type="submit" name="updateitem" id="updateitem" class="quantity-button" value=">" title="Güncelle" />
+                                                        </form>
+                                                    </td>
+                                                    <td class="shop-red" id="moneyItem_@item.ShoppingCartId" data-sp="@item.SoldPrice">
+                                                        @(String.Format("{0:c}", (item.Quantity * item.SoldPrice)))
+                                                    </td>
+                                                    <td>
+                                                        <a href="/ShoppingCart/Remove/@item.ShoppingCartId" class="close"><span>&times;</span><span class="sr-only">Kaldır</span></a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                                        }
+                </section>
+
+                <div class="coupon-code">
+                    <div class="row">
+                        <div class="col-sm-4 sm-margin-bottom-30">
+
+                        </div>
+                        <div class="col-sm-3 col-sm-offset-5">
+                            @if (Model.Customer.ShoppingCart.List != null)
+                            {
+                                decimal price = 0;
+                                foreach (var item in Model.Customer.ShoppingCart.List)
+                                {
+                                    price += (decimal)(item.Quantity * item.SoldPrice);
+                                }
+
+                                <ul class="list-inline total-result">
+                                    <li>
+                                        <h4>Ara Toplam:</h4>
+                                        <div class="total-result-in">
+                                            <span>@(String.Format("{0:c}", price))</span>
+                                        </div>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="total-price">
+                                        <h4>Toplam:</h4>
+                                        <div class="total-result-in">
+                                            <span>@(String.Format("{0:c}", price))</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @if (Model.Customer.ShoppingCart.List != null)
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="/ShoppingCart/Addresses" class="btn btn-primary pull-right btn-lg">Devam Et  <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

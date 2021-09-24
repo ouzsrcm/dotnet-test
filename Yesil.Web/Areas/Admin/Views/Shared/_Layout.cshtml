@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>YSL TARIM DIŞ TİCARET A.Ş.</title>
+    <link href="~/assets/admin/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/assets/admin/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/assets/admin/css/style.css" rel="stylesheet" />
+    <script src="~/assets/admin/js/jquery-1.12.4.min.js"></script>
+    <script src="~/assets/admin/js/bootstrap.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+</head>
+<body>
+
+    <div class="page-content center-block">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Menüyü aç</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Admin/Dashboard">
+                        <img src="~/assets/img/logo1-default.png" style="width:70px; margin-top: -10px;" />
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/Admin/Order">Siparişler</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Ürünler
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Admin/Category">Kategoriler</a></li>
+                                <li><a href="/Admin/Product">Ürünler</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/Admin/Customer">Müşteriler</a></li>
+                        <li><a href="/Admin/Facility">Tesisler</a></li>
+                        <li><a href="/Admin/News">Haberler</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Ayarlar
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Admin/Company">Firma Bilgileri</a></li>
+                                <li><a href="/Admin/Faq">S.S.S.</a></li>
+                                <li><a href="/Admin/Page">Sayfalar</a></li>
+                                <li><a href="/Admin/SocialAccount">Sosyal Hesaplar</a></li>
+                                <li><a href="/Admin/BankAccount">Banka Hesapları</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Yönetici
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Admin/Admin">Giriş Bilgilerim</a></li>
+                                <li><a href="/Admin/Login/Logout">Oturumu kapat</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

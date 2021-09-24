@@ -1,0 +1,62 @@
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Model.dll.config
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Model.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Model.pdb
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\EntityFramework.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\Microsoft.CSharp.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\PagedList.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.ComponentModel.DataAnnotations.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Data.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Xml.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Xml.Linq.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Data.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Data.pdb
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\EntityFramework.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\PagedList.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.csprojResolveAssemblyReference.cache
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.Properties.Resources.resources
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.csproj.GenerateResource.Cache
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.pdb
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Model.dll.config
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Model.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Model.pdb
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\EntityFramework.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\Microsoft.CSharp.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\PagedList.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\PagedList.Mvc.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.ComponentModel.DataAnnotations.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Data.DataSetExtensions.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Data.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Xml.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Xml.Linq.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Data.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\Yesil.Data.pdb
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\EntityFramework.xml
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\PagedList.xml
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\PagedList.Mvc.xml
+E:\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.csprojResolveAssemblyReference.cache
+E:\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.Properties.Resources.resources
+E:\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.csproj.GenerateResource.Cache
+E:\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.dll
+E:\Projects\Yesil.Web\Yesil.Model\obj\Debug\Yesil.Model.pdb
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.WebPages.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.Mvc.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.Razor.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.WebPages.xml
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.Mvc.xml
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\Microsoft.Web.Infrastructure.xml
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.Razor.xml
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Projects\Yesil.Web\Yesil.Model\bin\Debug\System.Web.WebPages.Razor.xml

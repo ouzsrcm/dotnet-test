@@ -1,0 +1,246 @@
+﻿@model Yesil.Model.IShop
+@{
+    ViewBag.Title = "Alışveriş Sepetim";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<div class="breadcrumbs-v4">
+    <div class="container">
+        <span class="page-name">Alışverişi tamamla</span>
+        <h1>SEPETİM</h1>
+        <ul class="breadcrumb-v4-in">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="/Customer">Hesabım</a></li>
+            <li class="active">Sepetim</li>
+        </ul>
+    </div>
+</div>
+
+<div class="content-md margin-bottom-30">
+    <div class="container">
+
+        @if (Model.Customer.ShoppingCart.AlertStatus != null)
+        {
+            if (Model.Customer.ShoppingCart.AlertStatus)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@Model.Customer.ShoppingCart.AlertCssClass">
+                            @if (@Model.Customer.ShoppingCart.AlertTitle != "")
+                            {
+                                <strong>@Model.Customer.ShoppingCart.AlertTitle</strong>
+                                <br />
+                            }
+                            @Html.Raw(Model.Customer.ShoppingCart.AlertBody)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="shopping-cart">
+            <div>
+
+                <div class="header-tags">
+                    <div class="overflow-h">
+                        <h2>Ödeme</h2>
+                    </div>
+                </div>
+                <form action="/ShoppingCart/Order" method="post">
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6 md-margin-bottom-50">
+                                <h2 class="title-type">ÖDEME TÜRÜNÜ SEÇİN</h2>
+                                <div class="well-sm">
+                                    <div class="alert alert-info">
+                                        <select class="form-control input-lg" name="PaymentType" id="PaymentType">
+                                            <option value="0">Ödeme Türü</option>
+                                            <option value="1">Kredi Kartı</option>
+                                            <option value="2">Hesaba Havale</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <h2 class="title-type">LÜTFEN BİLGİLERİNİZİ GİRİN</h2>
+                                <div class="accordion-v2">
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                        <i class="fa fa-credit-card"></i>
+                                                        Kredi Kartı
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="alert alert-info">
+                                                            Kart bilgilerinizi bize göndererek ödeme işlemini gerçekleştirebilirsiniz.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body cus-form-horizontal">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 no-col-space control-label">Kart üzerindeki isim</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control required" name="HolderName" id="HolderName" placeholder="Kart üzerindeki isim">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 no-col-space control-label">Kart numarası</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control required" name="Number" id="Number" placeholder="Kart numarası">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4">Son kullanım tarihi</label>
+                                                        <div class="col-sm-8 input-small-field">
+                                                            <input type="text" name="ExpirationMonth" id="ExpirationMonth" placeholder="Ay" class="form-control required sm-margin-bottom-20" />
+                                                            <input type="text" name="ExpirationYear" id="ExpirationYear" placeholder="Yıl" class="form-control required" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 no-col-space control-label">Güvenlik kodu</label>
+                                                        <div class="col-sm-8 input-small-field">
+                                                            <input type="text" name="Ccv" id="Ccv" placeholder="Güvenlik Kodu" class="form-control required" />
+                                                            <span>
+                                                                <small>
+                                                                    Kartınızın arka yüzündeki 3 rakamdan oluşan sayı.
+                                                                </small>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                        <i class="fa fa-paypal"></i>
+                                                        Hesaba Havale
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="alert alert-info">
+                                                            Banka hesaplarımızdan birine paranızı yatırarak ta işleminizi gerçekleştirebilirsiniz.
+                                                            <br />
+                                                            <strong>
+                                                                Lütfen ödeme işleminden sonra iletişim kısmından bulabileceğiniz telefon numarasıyla bizi bilgilendirin.
+                                                                Ödeme işlemi esnasında, açıklama olarak sipariş numaranızı yazmayı unutmayın.
+                                                            </strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content margin-left-10">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Banka</th>
+                                                                <th>Logo</th>
+                                                                <th>Hesap/IBAN No</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.Customer.BankAccounts)
+                                                            {
+                                                                <tr>
+                                                                    <td>@item.Title</td>
+                                                                    <td><img src="@item.Image" style="width:100px;" /></td>
+                                                                    <td>@item.Number</td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h2 class="title-type">AKLINIZA GELEBİLECEK SORULAR</h2>
+                                <div class="accordion-v2 plus-toggle">
+                                    <div class="panel-group" id="accordion-v2">
+                                        @foreach (var item in Model.Customer.Faqs)
+                                        {
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion-v2" href="#@item.FaqId" aria-expanded="true">
+                                                            @item.Question
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="@item.FaqId" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        @item.Answer
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                                <hr />
+
+                                <div class="well-sm">
+                                    <h2 class="title-type">EKLEMEK İSTEİĞİNİZ AÇIKLAMALAR</h2>
+                                        <textarea class="form-control" name="Description" id="Description"></textarea>
+</div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="coupon-code">
+                        <div class="row">
+                            <div class="col-sm-4 sm-margin-bottom-30">
+
+                            </div>
+                            <div class="col-sm-3 col-sm-offset-5">
+                                @if (Model.Customer.ShoppingCart.List.Count > 0)
+                                {
+
+                                    decimal price = 0;
+                                    foreach (var item in Model.Customer.ShoppingCart.List)
+                                    {
+                                        price += (decimal)(item.Quantity * item.SoldPrice);
+                                    }
+
+                                    <ul class="list-inline total-result">
+                                        <li>
+                                            <h4>Ara Toplam:</h4>
+                                            <div class="total-result-in">
+                                                <span>@(String.Format("{0:c}", price))</span>
+                                            </div>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li class="total-price">
+                                            <h4>Toplam:</h4>
+                                            <div class="total-result-in">
+                                                <span>@(String.Format("{0:c}", price))</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <input type="submit" name="btnOrder" value="Siparişi Tamamla" class="btn btn-primary pull-right btn-lg"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

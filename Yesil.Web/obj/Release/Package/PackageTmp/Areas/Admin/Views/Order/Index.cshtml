@@ -1,0 +1,63 @@
+﻿@model Yesil.Model.IOrder
+@{
+    ViewBag.Title = "Siparişler";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+@if (Model.Alert.AlertStatus != null)
+{
+    if (Model.Alert.AlertStatus)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-@Model.Alert.AlertCssClass">
+                    @if (@Model.Alert.AlertTitle != "")
+                    {
+                        <strong>@Model.Alert.AlertTitle</strong>
+                        <br />
+                    }
+                    @Model.Alert.AlertBody
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Müşteri</th>
+            <th>Ödeme Türü</th>
+            <th>Tarih</th>
+            <th>Sipariş Durumu</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+                <td>
+                    @item.Customer.Firstname @item.Customer.Lastname
+                </td>
+                <td>
+                    @if (@item.PaymentType == "card")
+                    {
+                        <text>Kredi Kartı</text>
+                    }
+                    else
+                    {
+                        <text>Hesaba Havale</text>
+                    }
+                </td>
+                <td>@item.Date</td>
+                <td>@item.OrderState.Title</td>
+                <td>
+                    <a href="/Admin/Order/Details/@item.OrderId">Detaylar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

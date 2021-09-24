@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Tesislerimiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="breadcrumbs-v3 img-v1">
+    <div class="container text-center">
+        <h1>TESİSLERİMİZ</h1>
+    </div>
+</div>
+<div class="cube-portfolio container margin-bottom-60">
+    <div class="content-xs">
+        <div id="filters-container" class="cbp-l-filters-text content-xs">
+        </div>
+    </div>
+    <div id="grid-container" class="cbp-l-grid-agency">
+        @foreach (var item in ViewBag.Facilities)
+        {
+            <div class="cbp-item graphic">
+                <h3>
+                    <a href="/Facilities/Details/@item.FacilityId">@item.Title</a>
+                </h3>
+                <div class="cbp-caption" style="height:250px;">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="@item.Image" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <ul class="link-captions">
+                                    <li><a href="/Facilities/Details/@item.FacilityId"><i class="rounded-x fa fa-link"></i></a></li>
+                                    <li><a href="@item.Image" class="cbp-lightbox" data-title="@item.Title"><i class="rounded-x fa fa-search"></i></a></li>
+                                </ul>
+                                <div class="cbp-l-grid-agency-title">@item.Title</div>
+                                <div class="cbp-l-grid-agency-desc">@item.Description</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

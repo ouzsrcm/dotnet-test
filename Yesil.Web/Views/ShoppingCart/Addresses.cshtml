@@ -1,0 +1,101 @@
+﻿@model Yesil.Model.IShop
+@{
+    ViewBag.Title = "Alışveriş Sepetim";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<div class="breadcrumbs-v4">
+    <div class="container">
+        <span class="page-name">Alışverişi tamamla</span>
+        <h1>SEPETİM</h1>
+        <ul class="breadcrumb-v4-in">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="/Customer">Hesabım</a></li>
+            <li class="active">Sepetim</li>
+        </ul>
+    </div>
+</div>
+
+<div class="content-md margin-bottom-30">
+    <div class="container">
+
+        @if (Model.Customer.Alert.AlertStatus != null)
+        {
+            if (Model.Customer.Alert.AlertStatus)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@Model.Customer.Alert.AlertCssClass">
+                            @if (@Model.Customer.Alert.AlertTitle != "")
+                            {
+                                <strong>@Model.Customer.Alert.AlertTitle</strong>
+                                <br />
+                            }
+                            @Model.Customer.Alert.AlertBody
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="shopping-cart">
+            <div>
+                <form action="/ShoppingCart/Addresses" method="post">
+                    <input type="hidden" name="CustomerAddressId" id="CustomerAddressId" value="@Model.Customer.Address.CustomerAddressId" />
+                    <input type="hidden" name="CustomerId" value="@Model.Customer.CustomerId" />
+                    <section class="billing-info">
+                        <div class="row">
+                            <div class="col-md-8 md-margin-bottom-40">
+                                <h2 class="title-type">LÜTFEN ADRESİNİZİ GİRİN</h2>
+                                <div class="billing-info-inputs checkbox-list">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <input id="Title" type="text" placeholder="Adres Tanımı" value="@Model.Customer.Address.Title" name="Title" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input id="Firstname" type="text" placeholder="Adı" value="@Model.Customer.Firstname" name="Firstname" disabled="disabled" class="form-control required">
+                                            <input id="Email" type="email" placeholder="Eposta" value="@Model.Customer.Email" name="Email" class="form-control required email">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input id="Lastname" type="text" placeholder="Soyadı" value="@Model.Customer.Lastname" name="Lastname" disabled="disabled" class="form-control required">
+                                            <input id="Phone1" type="tel" placeholder="Telefon" value="@Model.Customer.Phone1" name="Phone1" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <textarea class="form-control required" id="Address" name="Address">@Model.Customer.Address.Address</textarea>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input id="City" type="text" placeholder="Şehir" value="@Model.Customer.Address.City" name="City" class="form-control required">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input id="PostalCode" type="text" placeholder="Posta Kodu" value="@Model.Customer.Address.PostalCode" name="PostalCode" class="form-control required">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 md-margin-bottom-40">
+                                <h2 class="title-type">ADRES BİLGİSİ</h2>
+                                <div>
+                                    Lütfen ürünün teslim edileceği adres bilgisini eksiksiz bir biçimde girin.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary pull-right btn-lg" value="Devam Et" />
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model Yesil.Data.Customer
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Müşteri Sil</h3>
+
+<h4>Bu müşteriyi silmek istediğinize emin misiniz?</h4>
+<div>
+    <h4><strong>@Model.Firstname @Model.Lastname</strong></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Firstname)
+        </dd>
+
+        <dt>
+            Soyadı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lastname)
+        </dd>
+
+        <dt>
+            Eposta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Cep Telefonu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone1)
+        </dd>
+
+        <dt>
+            Sabit Telefon
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone2)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" onclick="return confirm('İşleme devam etmek istiyor musunuz?')" /> |
+            @Html.ActionLink("Müşteri Listesi", "Index")
+        </div>
+    }
+</div>

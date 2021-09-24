@@ -1,0 +1,116 @@
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Web.dll.config
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Web.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Web.pdb
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Antlr3.Runtime.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\EntityFramework.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Microsoft.CSharp.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Newtonsoft.Json.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\PagedList.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\PagedList.Mvc.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Configuration.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Data.DataSetExtensions.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Data.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Drawing.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.EnterpriseServices.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Net.Http.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Net.Http.WebRequest.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Abstractions.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.ApplicationServices.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.DynamicData.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Entity.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Extensions.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Helpers.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Mvc.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Optimization.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Razor.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Routing.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Services.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Xml.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Xml.Linq.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\WebGrease.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Data.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Model.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Data.pdb
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Model.pdb
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\EntityFramework.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\PagedList.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\PagedList.Mvc.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Helpers.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Mvc.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Optimization.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Razor.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Antlr3.Runtime.pdb
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\bin\Newtonsoft.Json.xml
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\obj\Release\Yesil.Web.csprojResolveAssemblyReference.cache
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\obj\Release\Yesil.Web.dll
+C:\Users\OGUZHANS\documents\visual studio 2013\Projects\Yesil.Web\Yesil.Web\obj\Release\Yesil.Web.pdb
+E:\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Web.dll.config
+E:\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Web.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Web.pdb
+E:\Projects\Yesil.Web\Yesil.Web\bin\Antlr3.Runtime.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\EntityFramework.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\EntityFramework.SqlServer.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\Microsoft.CSharp.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\Newtonsoft.Json.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\PagedList.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\PagedList.Mvc.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.ComponentModel.DataAnnotations.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Configuration.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Data.DataSetExtensions.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Data.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Drawing.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.EnterpriseServices.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Net.Http.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Net.Http.WebRequest.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Abstractions.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.ApplicationServices.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.DynamicData.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Entity.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Extensions.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Helpers.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Mvc.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Optimization.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Razor.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Routing.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Services.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.Razor.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Xml.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Xml.Linq.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\WebGrease.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Data.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Model.dll
+E:\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Data.pdb
+E:\Projects\Yesil.Web\Yesil.Web\bin\Yesil.Model.pdb
+E:\Projects\Yesil.Web\Yesil.Web\bin\EntityFramework.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\EntityFramework.SqlServer.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\PagedList.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\PagedList.Mvc.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Helpers.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Mvc.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Optimization.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.Razor.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\System.Web.WebPages.Razor.xml
+E:\Projects\Yesil.Web\Yesil.Web\bin\Antlr3.Runtime.pdb
+E:\Projects\Yesil.Web\Yesil.Web\bin\Newtonsoft.Json.xml
+E:\Projects\Yesil.Web\Yesil.Web\obj\Release\Yesil.Web.csprojResolveAssemblyReference.cache
+E:\Projects\Yesil.Web\Yesil.Web\obj\Release\Yesil.Web.dll
+E:\Projects\Yesil.Web\Yesil.Web\obj\Release\Yesil.Web.pdb

@@ -1,0 +1,42 @@
+﻿@model Yesil.Data.Facility
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Tesisi sil</h3>
+
+<h4>Bu tesisi silmek istediğinizden emin misiniz?</h4>
+<div>
+    <h4>@Model.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Başlık
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        
+        <dt>
+            Detaylar
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Details)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Tesisler", "Index")
+        </div>
+    }
+</div>

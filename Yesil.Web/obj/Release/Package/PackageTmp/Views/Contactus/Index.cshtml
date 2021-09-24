@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "İletişim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row margin-bottom-30">
+        <div class="col-md-9 mb-margin-bottom-30">
+
+            <div class="headline"><h2>Harita</h2></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1860.1882426222526!2d35.087570943328785!3d38.36168125706414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDIxJzQyLjgiTiAzNcKwMDUnMTQuNCJF!5e0!3m2!1str!2str!4v1464956677580" frameborder="0" style="border:0; width:100%; height:300px;" allowfullscreen></iframe>
+
+            <div class="headline"><h2>İletişim</h2></div>
+            <p>
+                @Html.Raw(ViewBag.ShortAbout)
+            </p><br />
+            <form action="javascript:;" method="post" id="sky-form3" class="sky-form contact-style">
+                <fieldset class="no-padding">
+                    <label>Adı, Soyadı <span class="color-red">*</span></label>
+                    <div class="row sky-space-20">
+                        <div class="col-md-7 col-md-offset-0">
+                            <div>
+                                <input type="text" name="name" id="name" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <label>Eposta <span class="color-red">*</span></label>
+                    <div class="row sky-space-20">
+                        <div class="col-md-7 col-md-offset-0">
+                            <div>
+                                <input type="text" name="email" id="email" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <label>Mesaj <span class="color-red">*</span></label>
+                    <div class="row sky-space-20">
+                        <div class="col-md-11 col-md-offset-0">
+                            <div>
+                                <textarea rows="8" name="message" id="message" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <p><button type="submit" class="btn-u">Gönder</button></p>
+                </fieldset>
+                <div class="message">
+                    <i class="rounded-x fa fa-check"></i>
+                    <p>Mesajınız alındı!</p>
+                </div>
+            </form>
+        </div><!--/col-md-9-->
+        <div class="col-md-3">
+            <!-- Contacts -->
+            <div class="headline"><h2>İletişim Bilgileri</h2></div>
+            <ul class="list-unstyled who margin-bottom-30">
+                <li><a href="#"><i class="fa fa-home"></i>@ViewBag.Company.Address</a></li>
+                <li><a href="mailto:@ViewBag.Company.Email"><i class="fa fa-envelope"></i>@ViewBag.Company.Email</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i>@ViewBag.Company.Phone1</a></li>
+                <li><a href="#"><i class="fa fa-globe"></i>@ViewBag.Company.Website</a></li>
+            </ul>
+            <!-- Business Hours -->
+            <div class="headline"><h2>Çalışma Saatleri(Ofis)</h2></div>
+            <ul class="list-unstyled margin-bottom-30">
+                @Html.Raw(ViewBag.Company.BussinesHours)
+            </ul>
+        </div><!--/col-md-3-->
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->

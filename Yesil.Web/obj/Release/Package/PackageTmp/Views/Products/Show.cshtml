@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<!--=== Shop Product ===-->
+<div class="shop-product">
+    <!-- Breadcrumbs v5 -->
+    <div class="container">
+        <ul class="breadcrumb-v5">
+            <li><a href="/"><i class="fa fa-home"></i></a></li>
+            <li><a href="/Products">Ürünler</a></li>
+            <li class="active">@Model.Product.Product.Title</li>
+        </ul>
+    </div>
+    <!-- End Breadcrumbs v5 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 md-margin-bottom-50">
+                <div class="ms-showcase2-template">
+                    <img class="ms-thumb" src="@Model.Product.Product.Image" style="width:100%;" alt="thumb">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="shop-product-heading">
+                    <h2>@Model.Product.Product.Title</h2>
+                    <ul class="list-inline shop-product-social">
+                        @foreach (var item in ViewBag.SocialAccounts)
+                        {
+                            <li><a href="@item.Url" title="@item.Title"><i class="fb rounded-md @item.Icon"></i></a></li>
+                        }
+                    </ul>
+                </div>
+                <p>
+                @Html.Raw(Model.Product.Product.Details)
+                </p><br>
+                <ul class="list-inline shop-product-prices margin-bottom-30">
+                    @if ((bool)Model.Product.Product.IsCampaign)
+                    {
+                        <li class="shop-red">@(String.Format("{0:c}", Model.Product.Product.CampaignPrice))</li>
+                        <li class="line-through">@(String.Format("{0:c}", Model.Product.Product.Price))</li>
+                    }
+                    else
+                    {
+                        <li class="line-through">@(String.Format("{0:c}", Model.Product.Product.Price))</li>
+                    }
+                </ul>
+                <div class="margin-bottom-40">
+                    <a href="/ShoppingCart/Add/@Model.Product.Product.ProductId" class="btn-u btn-u-sea-shop btn-u-lg">Sepete Ekle</a>
+                </div>
+                <p class="wishlist-category"><strong>Kategori:</strong> <a target="_blank" href="/Products/Category/@Model.Product.Product.Category.CategoryId">@Model.Product.Product.Category.Title</a></p>
+            </div>
+        </div><!--/end row-->
+    </div>
+</div>
+<div class="content-md container">
+    <div class="tab-v5">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#description" role="tab" data-toggle="tab">Detaylar</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="description">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>@Model.Product.Product.Title</h4>
+                        <p>@Html.Raw(Model.Product.Product.Details)</p><br>
+                        <h3 class="heading-md margin-bottom-20">Etiketler</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @Model.Product.Product.Tags
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model Yesil.Data.Faq
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Soru düzenle</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        @Html.HiddenFor(model => model.FaqId)
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Soru</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Cevap</div>
+            <div class="col-md-10">
+                <textarea id="Answer" name="Answer">@Model.Answer</textarea>
+                @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+                <script>
+                    $(document).ready(function () {
+                        $("#Answer").summernote();
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Sorular", "Index")
+</div>

@@ -1,0 +1,86 @@
+﻿@model Yesil.Model.IShop
+@{
+    ViewBag.Title = "Hesabım";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+<div class="breadcrumbs-v4">
+    <div class="container">
+        <h1>GİRİŞ YAP</h1>
+        <ul class="breadcrumb-v4-in">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="#">Hesabım</a></li>
+        </ul>
+    </div>
+</div>
+<div class="log-reg-v3 content-xs">
+    <div class="container">
+        @if (Model.Customer.Alert.AlertStatus != null)
+        {
+            if (Model.Customer.Alert.AlertStatus)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@Model.Customer.Alert.AlertCssClass">
+                            @if (@Model.Customer.Alert.AlertTitle != "")
+                            {
+                                <strong>@Model.Customer.Alert.AlertTitle</strong>
+                                <br />
+                            }
+                            @Model.Customer.Alert.AlertBody
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        <div class="row">
+            <div class="col-md-7 md-margin-bottom-50">
+                <h2 class="welcome-title">Hoşgeldiniz</h2>
+                <p>
+                    @Html.Raw(ViewBag.ShortAbout)
+                </p><br>
+                <div class="info-block-v2">
+                    <i class="icon icon-settings"></i>
+                    <div class="info-block-in">
+                        <h3>Hesabın yok mu?</h3>
+                        <p>
+                            Hemen bir hesap oluştur ve alışverişe devam et.
+                        </p>
+                        <a href="/Customer/Create" class="btn-u btn-u-blue pull-right">Hemen Kaydol</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <form id="sky-form1" method="post" action="/Customer/Login" class="log-reg-block sky-form">
+                    <h2>Giriş yap</h2>
+                    <section>
+                        <label class="input login-input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="email" placeholder="Eposta adresiniz" name="Email" id="Email" class="form-control">
+                            </div>
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input login-input no-border-top">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" placeholder="Parola" name="password" id="Password" class="form-control">
+                            </div>
+                        </label>
+                    </section>
+                    <div class="row margin-bottom-5">
+                        <div class="col-xs-6 text-right">
+
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <a href="/ContactUs">Parolamı hatırlamıyorum</a>
+                        </div>
+                    </div>
+                    <div class="margin-bottom-20"></div>
+                    <button class="btn-u btn-u-sea-shop btn-block margin-bottom-20" type="submit">Giriş yap</button>
+                </form>
+                <div class="margin-bottom-20"></div>
+            </div>
+        </div><!--/end row-->
+    </div><!--/end container-->
+</div>

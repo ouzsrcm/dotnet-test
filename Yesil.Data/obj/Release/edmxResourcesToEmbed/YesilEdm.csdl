@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YesilModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="YesilEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="YesilModel.Admin" />
+    <EntitySet Name="BankAccounts" EntityType="YesilModel.BankAccount" />
+    <EntitySet Name="Categories" EntityType="YesilModel.Category" />
+    <EntitySet Name="Companies" EntityType="YesilModel.Company" />
+    <EntitySet Name="Customers" EntityType="YesilModel.Customer" />
+    <EntitySet Name="CustomerAddresses" EntityType="YesilModel.CustomerAddress" />
+    <EntitySet Name="CustomerCredentials" EntityType="YesilModel.CustomerCredential" />
+    <EntitySet Name="Facilities" EntityType="YesilModel.Facility" />
+    <EntitySet Name="FacilityImages" EntityType="YesilModel.FacilityImage" />
+    <EntitySet Name="Faqs" EntityType="YesilModel.Faq" />
+    <EntitySet Name="News" EntityType="YesilModel.News" />
+    <EntitySet Name="Orders" EntityType="YesilModel.Order" />
+    <EntitySet Name="OrderCards" EntityType="YesilModel.OrderCard" />
+    <EntitySet Name="OrderProducts" EntityType="YesilModel.OrderProduct" />
+    <EntitySet Name="OrderStates" EntityType="YesilModel.OrderState" />
+    <EntitySet Name="Pages" EntityType="YesilModel.Page" />
+    <EntitySet Name="PagePlugins" EntityType="YesilModel.PagePlugin" />
+    <EntitySet Name="Products" EntityType="YesilModel.Product" />
+    <EntitySet Name="ShoppingCarts" EntityType="YesilModel.ShoppingCart" />
+    <EntitySet Name="SocialAccounts" EntityType="YesilModel.SocialAccount" />
+    <EntitySet Name="sysdiagrams" EntityType="YesilModel.sysdiagram" />
+    <EntitySet Name="Units" EntityType="YesilModel.Unit" />
+    <AssociationSet Name="FK_Product_Category" Association="YesilModel.FK_Product_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerAddress_Customer" Association="YesilModel.FK_CustomerAddress_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerCredential_Customer" Association="YesilModel.FK_CustomerCredential_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerCredential" EntitySet="CustomerCredentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Customer" Association="YesilModel.FK_Order_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShoppingCart_Customer" Association="YesilModel.FK_ShoppingCart_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityImage_Facility" Association="YesilModel.FK_FacilityImage_Facility">
+      <End Role="Facility" EntitySet="Facilities" />
+      <End Role="FacilityImage" EntitySet="FacilityImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderState" Association="YesilModel.FK_Order_OrderState">
+      <End Role="OrderState" EntitySet="OrderStates" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderCard_Order" Association="YesilModel.FK_OrderCard_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderCard" EntitySet="OrderCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderProduct_Order" Association="YesilModel.FK_OrderProduct_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderProduct" EntitySet="OrderProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderProduct_Product" Association="YesilModel.FK_OrderProduct_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderProduct" EntitySet="OrderProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderProduct_Unit" Association="YesilModel.FK_OrderProduct_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="OrderProduct" EntitySet="OrderProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagePlugin_Page" Association="YesilModel.FK_PagePlugin_Page">
+      <End Role="Page" EntitySet="Pages" />
+      <End Role="PagePlugin" EntitySet="PagePlugins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Unit" Association="YesilModel.FK_Product_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShoppingCart_Product" Association="YesilModel.FK_ShoppingCart_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShoppingCart_Unit" Association="YesilModel.FK_ShoppingCart_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="BankAccount">
+    <Key>
+      <PropertyRef Name="BankAccountId" />
+    </Key>
+    <Property Name="BankAccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Keyword" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="YesilModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Phone1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BussinesHours" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CustomerAddresses" Relationship="YesilModel.FK_CustomerAddress_Customer" FromRole="Customer" ToRole="CustomerAddress" />
+    <NavigationProperty Name="CustomerCredentials" Relationship="YesilModel.FK_CustomerCredential_Customer" FromRole="Customer" ToRole="CustomerCredential" />
+    <NavigationProperty Name="Orders" Relationship="YesilModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="YesilModel.FK_ShoppingCart_Customer" FromRole="Customer" ToRole="ShoppingCart" />
+  </EntityType>
+  <EntityType Name="CustomerAddress">
+    <Key>
+      <PropertyRef Name="CustomerAddressId" />
+    </Key>
+    <Property Name="CustomerAddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Phone3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="YesilModel.FK_CustomerAddress_Customer" FromRole="CustomerAddress" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="CustomerCredential">
+    <Key>
+      <PropertyRef Name="CustomerCredentialId" />
+    </Key>
+    <Property Name="CustomerCredentialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Customer" Relationship="YesilModel.FK_CustomerCredential_Customer" FromRole="CustomerCredential" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Facility">
+    <Key>
+      <PropertyRef Name="FacilityId" />
+    </Key>
+    <Property Name="FacilityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Keyword" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FacilityImages" Relationship="YesilModel.FK_FacilityImage_Facility" FromRole="Facility" ToRole="FacilityImage" />
+  </EntityType>
+  <EntityType Name="FacilityImage">
+    <Key>
+      <PropertyRef Name="FacilityImageId" />
+    </Key>
+    <Property Name="FacilityImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityId" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Facility" Relationship="YesilModel.FK_FacilityImage_Facility" FromRole="FacilityImage" ToRole="Facility" />
+  </EntityType>
+  <EntityType Name="Faq">
+    <Key>
+      <PropertyRef Name="FaqId" />
+    </Key>
+    <Property Name="FaqId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Keyword" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DeliveryAddressId" Type="Int32" />
+    <Property Name="BillingAddressId" Type="Int32" />
+    <Property Name="OrderStateId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="YesilModel.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="OrderState" Relationship="YesilModel.FK_Order_OrderState" FromRole="Order" ToRole="OrderState" />
+    <NavigationProperty Name="OrderCards" Relationship="YesilModel.FK_OrderCard_Order" FromRole="Order" ToRole="OrderCard" />
+    <NavigationProperty Name="OrderProducts" Relationship="YesilModel.FK_OrderProduct_Order" FromRole="Order" ToRole="OrderProduct" />
+  </EntityType>
+  <EntityType Name="OrderCard">
+    <Key>
+      <PropertyRef Name="OrderCardId" />
+    </Key>
+    <Property Name="OrderCardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="HolderName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ExpirationYear" Type="Int32" />
+    <Property Name="ExpirationMonth" Type="Int32" />
+    <Property Name="Ccv" Type="Int32" />
+    <NavigationProperty Name="Order" Relationship="YesilModel.FK_OrderCard_Order" FromRole="OrderCard" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="OrderProduct">
+    <Key>
+      <PropertyRef Name="OrderProductId" />
+    </Key>
+    <Property Name="OrderProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="YesilModel.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="YesilModel.FK_OrderProduct_Product" FromRole="OrderProduct" ToRole="Product" />
+    <NavigationProperty Name="Unit" Relationship="YesilModel.FK_OrderProduct_Unit" FromRole="OrderProduct" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="OrderState">
+    <Key>
+      <PropertyRef Name="OrderStateId" />
+    </Key>
+    <Property Name="OrderStateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="YesilModel.FK_Order_OrderState" FromRole="OrderState" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Name="PageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Keyword" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PagePlugins" Relationship="YesilModel.FK_PagePlugin_Page" FromRole="Page" ToRole="PagePlugin" />
+  </EntityType>
+  <EntityType Name="PagePlugin">
+    <Key>
+      <PropertyRef Name="PagePluginId" />
+    </Key>
+    <Property Name="PagePluginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="PluginType" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Page" Relationship="YesilModel.FK_PagePlugin_Page" FromRole="PagePlugin" ToRole="Page" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Keyword" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CampaignPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IsCampaign" Type="Boolean" />
+    <NavigationProperty Name="Category" Relationship="YesilModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="OrderProducts" Relationship="YesilModel.FK_OrderProduct_Product" FromRole="Product" ToRole="OrderProduct" />
+    <NavigationProperty Name="Unit" Relationship="YesilModel.FK_Product_Unit" FromRole="Product" ToRole="Unit" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="YesilModel.FK_ShoppingCart_Product" FromRole="Product" ToRole="ShoppingCart" />
+  </EntityType>
+  <EntityType Name="ShoppingCart">
+    <Key>
+      <PropertyRef Name="ShoppingCartId" />
+    </Key>
+    <Property Name="ShoppingCartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="SoldPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="YesilModel.FK_ShoppingCart_Customer" FromRole="ShoppingCart" ToRole="Customer" />
+    <NavigationProperty Name="Product" Relationship="YesilModel.FK_ShoppingCart_Product" FromRole="ShoppingCart" ToRole="Product" />
+    <NavigationProperty Name="Unit" Relationship="YesilModel.FK_ShoppingCart_Unit" FromRole="ShoppingCart" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="SocialAccount">
+    <Key>
+      <PropertyRef Name="SocialAccountId" />
+    </Key>
+    <Property Name="SocialAccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="UnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OrderProducts" Relationship="YesilModel.FK_OrderProduct_Unit" FromRole="Unit" ToRole="OrderProduct" />
+    <NavigationProperty Name="Products" Relationship="YesilModel.FK_Product_Unit" FromRole="Unit" ToRole="Product" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="YesilModel.FK_ShoppingCart_Unit" FromRole="Unit" ToRole="ShoppingCart" />
+  </EntityType>
+  <Association Name="FK_Product_Category">
+    <End Type="YesilModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="YesilModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerAddress_Customer">
+    <End Type="YesilModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="YesilModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="CustomerAddress">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerCredential_Customer">
+    <End Type="YesilModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="YesilModel.CustomerCredential" Role="CustomerCredential" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="CustomerCredential">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Customer">
+    <End Type="YesilModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="YesilModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShoppingCart_Customer">
+    <End Type="YesilModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="YesilModel.ShoppingCart" Role="ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityImage_Facility">
+    <End Type="YesilModel.Facility" Role="Facility" Multiplicity="0..1" />
+    <End Type="YesilModel.FacilityImage" Role="FacilityImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facility">
+        <PropertyRef Name="FacilityId" />
+      </Principal>
+      <Dependent Role="FacilityImage">
+        <PropertyRef Name="FacilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderState">
+    <End Type="YesilModel.OrderState" Role="OrderState" Multiplicity="0..1" />
+    <End Type="YesilModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderState">
+        <PropertyRef Name="OrderStateId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderStateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderCard_Order">
+    <End Type="YesilModel.Order" Role="Order" Multiplicity="0..1" />
+    <End Type="YesilModel.OrderCard" Role="OrderCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderCard">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderProduct_Order">
+    <End Type="YesilModel.Order" Role="Order" Multiplicity="0..1" />
+    <End Type="YesilModel.OrderProduct" Role="OrderProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderProduct">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderProduct_Product">
+    <End Type="YesilModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="YesilModel.OrderProduct" Role="OrderProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="OrderProduct">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderProduct_Unit">
+    <End Type="YesilModel.Unit" Role="Unit" Multiplicity="0..1" />
+    <End Type="YesilModel.OrderProduct" Role="OrderProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="OrderProduct">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagePlugin_Page">
+    <End Type="YesilModel.Page" Role="Page" Multiplicity="0..1" />
+    <End Type="YesilModel.PagePlugin" Role="PagePlugin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="PagePlugin">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Unit">
+    <End Type="YesilModel.Unit" Role="Unit" Multiplicity="0..1" />
+    <End Type="YesilModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShoppingCart_Product">
+    <End Type="YesilModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="YesilModel.ShoppingCart" Role="ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShoppingCart_Unit">
+    <End Type="YesilModel.Unit" Role="Unit" Multiplicity="0..1" />
+    <End Type="YesilModel.ShoppingCart" Role="ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

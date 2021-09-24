@@ -1,0 +1,41 @@
+﻿@model Yesil.Data.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Ürünü sil</h3>
+
+<h4>Bu ürünü silmek istediğinizden emin misiniz?</h4>
+<div>
+    <h4><strong>@Model.Title</strong></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Başlık
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Kategori
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" onclick="return confirm('İşleme devam etmek istiyor musunuz?')" /> |
+            @Html.ActionLink("Ürün Listesi", "Index")
+        </div>
+    }
+</div>

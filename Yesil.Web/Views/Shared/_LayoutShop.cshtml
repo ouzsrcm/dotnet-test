@@ -1,0 +1,235 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <title>@ViewBag.Title | @ViewBag.PreTitle</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    @Html.Raw(ViewBag.Css)
+</head>
+<body class="header-fixed">
+
+    <div class="wrapper">
+        <!--=== Header v5 ===-->
+        <div class="header-v5 header-static">
+            <!-- Topbar v3 -->
+            <div class="topbar-v3">
+                <div class="search-open">
+                    <div class="container">
+                        <input type="text" class="form-control" placeholder="Ürün arayın...">
+                        <div class="search-close"><i class="icon-close"></i></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-inline right-topbar pull-right">
+                                @if (Session["CustomerId"] != null)
+                                {
+                                    <li><a href="/Customer">Hesabım</a></li>
+                                    <li><a href="/ShoppingCart">Sepet</a></li>
+                                    <li><a href="/Customer/Logout">Güvenli Çıkış</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="/Customer">GİRİŞ YAP</a></li>
+                                    <li><a href="/Customer/Create">KAYDOL</a></li>
+                                }
+                                <li><i class="search fa fa-search search-button"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Topbar v3 -->
+            <!-- Navbar -->
+            <div class="navbar navbar-default mega-menu" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/Products">
+                            <img id="logo-header" src="/assets/img/logo1-default.png" style="width:100px;" alt="Logo">
+                        </a>
+                    </div>
+                    <!-- Shopping Cart -->
+                    @Html.Partial("_ShoppingCartPartial")
+                    <!-- End Shopping Cart -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                        <!-- Nav Menu -->
+                        <ul class="nav navbar-nav">
+                            <!-- Pages -->
+                            <li class="dropdown"><a href="/">ANASAYFA</a></li>
+                            <li class="dropdown"><a href="/Aboutus">HAKKIMIZDA</a></li>
+                            <li class="dropdown"><a href="/Products">ÜRÜNLERİMİZ</a></li>
+                            <li class="dropdown"><a href="/Facilities">TESİSLERİMİZ</a></li>
+                            <li class="dropdown"><a href="/Contactus">İLETİŞİM</a></li>
+                        </ul>
+                        <!-- End Nav Menu -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Navbar -->
+        </div>
+        <!--=== End Header v5 ===-->
+        @RenderBody()
+        <!--=== Footer v4 ===-->
+        <div class="footer-v4">
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- About -->
+                        <div class="col-md-4 md-margin-bottom-40">
+                            <a href="/Products"><img class="footer-logo" style="width:120px;" src="/assets/img/logo1-default.png" alt=""></a>
+                            <p>
+                                @Html.Raw(ViewBag.ShortAbout)
+                            </p>
+                            <br>
+                            <ul class="list-unstyled address-list margin-bottom-20">
+                                <li><i class="fa fa-angle-right"></i>@ViewBag.Company.Address</li>
+                                <li><i class="fa fa-angle-right"></i>Telefon: @ViewBag.Company.Phone1</li>
+                                <li><i class="fa fa-angle-right"></i>Faks: @ViewBag.Company.Fax</li>
+                                <li><i class="fa fa-angle-right"></i>Eposta: @ViewBag.Company.Email</li>
+                            </ul>
+                            <ul class="list-inline shop-social">
+                                @foreach (var item in ViewBag.SocialAccounts)
+                                {
+                                    <li><a href="@item.Url" title="@item.Title"><i class="fb rounded-md @item.Icon"></i></a></li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">SEBZELER</h2>
+                                    <ul class="list-unstyled simple-list margin-bottom-20">
+                                        <li><a href="#">Ultima Hora</a></li>
+                                        <li><a href="#">Exclusiva</a></li>
+                                        <li><a href="#">Documentos </a></li>
+                                        <li><a href="#">Francisco papa</a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">MEYVELER</h2>
+                                    <ul class="list-unstyled simple-list">
+                                        <li><a href="#">Ultima Hora</a></li>
+                                        <li><a href="#">Exclusiva</a></li>
+                                        <li><a href="#">Documentos </a></li>
+                                        <li><a href="#">Francisco papa</a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">TOHUMLAR</h2>
+                                    <ul class="list-unstyled simple-list margin-bottom-20">
+                                        <li><a href="#">Ultima Hora</a></li>
+                                        <li><a href="#">Exclusiva</a></li>
+                                        <li><a href="#">Documentos </a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">FİDANLAR</h2>
+                                    <ul class="list-unstyled simple-list">
+                                        <li><a href="#">Ultima Hora</a></li>
+                                        <li><a href="#">Exclusiva</a></li>
+                                        <li><a href="#">Documentos </a></li>
+                                        <li><a href="#">Francisco papa</a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">SEBZELER</h2>
+                                    <ul class="list-unstyled simple-list margin-bottom-20">
+                                        <li><a href="#">Ultima Hora</a></li>
+                                        <li><a href="#">Exclusiva</a></li>
+                                        <li><a href="#">Documentos </a></li>
+                                        <li><a href="#">Francisco papa</a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">MEYVELER</h2>
+                                    <ul class="list-unstyled simple-list">
+                                        <li><a href="#">Ultima Hora</a></li>
+                                        <li><a href="#">Exclusiva</a></li>
+                                        <li><a href="#">Documentos </a></li>
+                                        <li><a href="#">Francisco papa</a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">TOHUMLAR</h2>
+                                    <ul class="list-unstyled simple-list margin-bottom-20">
+                                        <li><a href="#">Ultima Hora</a></li>
+                                        <li><a href="#">Exclusiva</a></li>
+                                        <li><a href="#">Documentos </a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">FİDANLAR</h2>
+                                    <ul class="list-unstyled simple-list">
+                                        <li><a href="#">Ultima Hora</a></li>
+                                        <li><a href="#">Exclusiva</a></li>
+                                        <li><a href="#">Documentos </a></li>
+                                        <li><a href="#">Francisco papa</a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/end row-->
+                </div><!--/end continer-->
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                @DateTime.Now.Year.ToString() &copy; ysl. Bütün hakları saklıdır.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Raw(ViewBag.Js)
+</body>
+</html>

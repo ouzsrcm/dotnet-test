@@ -1,0 +1,150 @@
+﻿@model Yesil.Model.IOrder
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <h3>Sipariş Detayları</h3>
+    </div>
+    <div class="col-md-5">
+        <a href="/Admin/Order" class="btn btn-primary pull-right">Siparişler</a>
+    </div>
+</div>
+<hr />
+@if (Model.Alert.AlertStatus != null)
+{
+    if (Model.Alert.AlertStatus)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-@Model.Alert.AlertCssClass">
+                    @if (@Model.Alert.AlertTitle != "")
+                    {
+                        <strong>@Model.Alert.AlertTitle</strong>
+                        <br />
+                    }
+                    @Model.Alert.AlertBody
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#details" aria-controls="home" role="tab" data-toggle="tab">Sipariş Detayları</a></li>
+    <li role="presentation"><a href="#products" aria-controls="profile" role="tab" data-toggle="tab">Ürünler</a></li>
+</ul>
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="details">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>Sipariş Durumu</td>
+                    <td>
+                        <form action="/Admin/Order/SaveDetails" method="post">
+                            <input type="hidden" name="OrderId" id="OrderId" value="@Model.OrderId" />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select class="form-control" id="OrderStateId" name="OrderStateId">
+                                        @foreach (var item in Model.OrderStatus)
+                                        {
+                                            <option value="@item.OrderStateId">@item.Title</option>
+                                        }
+                                    </select>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $("#OrderStateId").val('@Model.OrderStateId');
+                                        });
+                                    </script>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="submit" name="btnChangeOrderState" value="Güncelle" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sipariş Tarihi</td>
+                    <td>@Model.Date</td>
+                </tr>
+                <tr>
+                    <td>Müşteri</td>
+                    <td>
+                        <a href="/Admin/Customer/Edit/@Model.Customer.CustomerId">
+                            @Model.Customer.Firstname @Model.Customer.Lastname
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Teslimat Adresi</td>
+                    <td>
+                        <strong>Telefon:</strong>    @Model.CustomerAddress.Phone1<br />
+                        <strong>Eposta:</strong>     @Model.CustomerAddress.Email<br />
+                        <strong>Şehir:</strong>      @Model.CustomerAddress.City<br />
+                        <strong>Posta Kodu:</strong> @Model.CustomerAddress.PostalCode<br />
+                        <strong>Adres:</strong>      @Model.CustomerAddress.Address
+                    </td>
+                </tr>
+                <tr>
+                    <td>Müşteri Notu</td>
+                    <td>@Model.Description</td>
+                </tr>
+                <tr>
+                    <td>Ödeme Türü</td>
+                    <td>
+                        @if (Model.PaymentType == "card")
+                        {
+                            <text><strong>
+                                    Kredi Kartı
+                                </strong> <br /></text>
+                            <text>
+                                Kart Sahibinin adı: @Model.OrderCard.HolderName<br />
+                                Kart Numarası:      @Model.OrderCard.Number<br />
+                                Son Kullanma:       @Model.OrderCard.ExpirationYear / @Model.OrderCard.ExpirationMonth<br />
+                                Güvenlik Kodu:      @Model.OrderCard.Ccv<br />
+                                Tarih:              @Model.OrderCard.Date
+                            </text>
+                        }
+                        else
+                        {
+                            <text>Hesaba Havale</text>
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="products">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ürün</th>
+                    <th>Miktar</th>
+                    <th>Fiyat</th>
+                    <th>Ara toplam</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td>@item.Product.Title</td>
+                        <td>@item.Quantity @item.Unit.Title</td>
+                        <td>@String.Format("{0:c}", item.Price)</td>
+                        <td>@(String.Format("{0:c}", (item.Price * item.Quantity)))</td>
+                        <td>
+                            <a href="/Admin/Product/Edit/@item.Product.ProductId" class="btn btn-default btn-xs">
+                                ürüne git
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

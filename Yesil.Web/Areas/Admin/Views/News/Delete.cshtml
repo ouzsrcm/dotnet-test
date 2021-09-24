@@ -1,0 +1,38 @@
+﻿@model Yesil.Data.News
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Haber sil</h3>
+
+<h4>Bu haberi silmek istediğinize emin misiniz?</h4>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Başlık
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Detaylar
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Details)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Haberler", "Index")
+        </div>
+    }
+</div>

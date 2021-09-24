@@ -1,0 +1,142 @@
+﻿<html>
+
+<head>
+    @Html.Partial("Header")
+</head>
+
+<body class="header-fixed header-fixed-space">
+
+    <div class="wrapper">
+
+        <div class="header-v6 header-classic-white header-sticky">
+            <div class="navbar mega-menu" role="navigation">
+                <div class="container container-space">
+                    <div class="menu-container">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <a href="/">
+                                <img class="shrink-logo" src="/assets/img/logo1-default.png" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="header-inner-right">
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                        <div class="menu-container">
+                            <ul class="nav navbar-nav">
+                                <!-- Home -->
+                                <li class="dropdown">
+                                    <a href="/">
+                                        ANASAYFA
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/Aboutus">
+                                        HAKKIMIZDA
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/Products">
+                                        Ürünlerimiz
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/Facilities">
+                                        Tesislerimiz
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/Contactus">
+                                        İletişim
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @RenderBody()
+
+        <div class="footer-v1">
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <a href="/"><img id="logo-footer" class="footer-logo" style="width:140px;" src="/assets/img/logo1-default.png" alt=""></a>
+                            <p>
+                                @Html.Raw(ViewBag.ShortAbout)
+                            </p>
+                        </div>
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="posts">
+                                <div class="headline"><h2>Haberler</h2></div>
+                                <ul class="list-unstyled latest-list">
+                                    @foreach (var item in ViewBag.News)
+                                    {
+                                        <li>
+                                            <a href="/News/Details/@item.NewsId">@item.Title</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="headline"><h2>Kategoriler</h2></div>
+                            <ul class="list-unstyled link-list">
+                                @foreach (var item in ViewBag.Categories)
+                                {
+                                    <li><a href="/Products/Category/@item.CategoryId">@item.Title</a><i class="fa fa-angle-right"></i></li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="col-md-3 map-img md-margin-bottom-40">
+                            <div class="headline"><h2>Hızlı İletişim</h2></div>
+                            <address class="md-margin-bottom-40">
+                                @ViewBag.Company.Address<br />
+                                Telefon: @ViewBag.Company.Phone1 <br />
+                                Faks: @ViewBag.Company.Fax <br />
+                                Eposta: <a href="mailto:@ViewBag.Company.Email" class="">@ViewBag.Company.Email</a>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                @DateTime.Now.Year.ToString() &copy; Bütün hakları saklıdır.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="footer-socials list-inline">
+                                @foreach (var item in ViewBag.SocialAccounts)
+                                {
+                                    <li>
+                                        <a href="@item.Url" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="@item.Title">
+                                            <i class="@item.Icon"></i>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @Html.Partial("Scripts")
+
+</body>
+
+</html>

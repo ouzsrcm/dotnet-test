@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Yesil.Data.SocialAccount>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Sosyal Medya Hesapları</h3>
+
+<p>
+    @Html.ActionLink("Yeni ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Başlık
+        </th>
+        <th>
+            Sayfa adresi
+        </th>
+        <th>
+            icon
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icon)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.SocialAccountId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.SocialAccountId })
+            </td>
+        </tr>
+    }
+
+</table>

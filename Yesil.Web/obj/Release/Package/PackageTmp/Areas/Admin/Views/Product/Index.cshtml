@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Yesil.Data.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ürünler</h2>
+
+<p>
+    @Html.ActionLink("Yeni ürün ekle", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            Resim
+        </th>
+        <th>
+            Başlık
+        </th>
+        <th>
+            Fiyat
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@item.Image" style="width:80px;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @(String.Format("{0:c}", item.Price))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Yesil.Data.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Kategoriler</h3>
+
+<p>
+    @Html.ActionLink("Yeni Kategori Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Başlık
+        </th>
+        <th>
+            Detaylar
+        </th>
+        <th>
+            Anahtar Kelimeler
+        </th>
+        <th>
+            Açıklamalar
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.CategoryId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.CategoryId })
+            </td>
+        </tr>
+    }
+
+</table>
